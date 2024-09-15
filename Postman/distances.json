@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "f3a0d501-52a4-4c9d-8646-91f4586ffc59",
+		"name": "distances",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25883428-f3a0d501-52a4-4c9d-8646-91f4586ffc59"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7e4477e-d2c9-43a9-b92f-7b09eaf40481",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6744de21-8eba-463c-86c5-e214f48be36c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [],\n    \"earthRadius\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: DistancesRequest test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1da0cc88-7bb5-4335-b7dd-5d3db159f60c",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse RequestType validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.requestType).to.eql(\"distances\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse Distances validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.distances).to.eql([65, 191, 96, 212])\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "73182710-9e99-4f36-8658-04ffb96ab5ea",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\"    : \"distances\",\r\n    \"places\"         : [{\"name\": \"Albany, Australia\", \"latitude\": \"-35.02729217867487\", \"longitude\": \"117.88302295381932\"},\r\n                        {\"name\": \"Bangkok, Thailand\", \"latitude\": \"13.866447528849083\", \"longitude\": \"100.50848732189924\"},\r\n                        {\"name\": \"Buenos Aires, Argentina\", \"latitude\": \"-34.60551381209748\", \"longitude\": \"-58.385705372566505\"},\r\n                        {\"name\": \"Manhattan, New York\", \"latitude\": \"40.78309439690183\", \"longitude\": \"-73.97166985759654\"}],\r\n    \"earthRadius\"    : 72.0,\r\n    \"formula\"        : \"vincenty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: brennawr.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f70fa509-4860-40f9-bd7b-2f11ad067fcb",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse RequestType validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.requestType).to.eql(\"distances\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse Distances validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.distances).to.eql([14112451, 12598939, 7878828, 8709473])\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "4da80b2c-d85d-4559-bb2b-f46803dc4084",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"distances\",\r\n    \"places\": [\r\n        { \"name\": \"Coldfoot, Alaska\", \"latitude\": \"67.225436\", \"longitude\": \"-150.180558\" },\r\n        { \"name\": \"Limache, Chile\", \"latitude\": \"-32.990413\", \"longitude\": \"-71.268997\" },\r\n        { \"name\": \"Orange, Australia\", \"latitude\": \"-33.275114\", \"longitude\": \"149.085303\" },\r\n        { \"name\": \"Hong Kong, China\", \"latitude\": \"22.328186\", \"longitude\": \"114.167598\" } ],\r\n    \"earthRadius\": 6965840,\r\n    \"formula\": \"vincenty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: declanjm.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f178b409-8d24-4b39-80d4-bac27b8bf530",
+						"exec": [
+							"pm.test(\"Response is HTTP400 status\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e0100db6-b3d7-486b-bf62-9a71b04b19cf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\" : \"distances\",\r\n    \"places\"      : [\r\n        {\"name\" : \"The White House\", \"latitude\" : \"38.8975\", \"longitude\" : \"-77.0363889\"},\r\n        {\"name\" : \"Christ the Redeemer\", \"latitude\" : \"-22.951667\", \"longitude\" : \"-43.2102778\"},\r\n        {\"name\" : \"Louvre\", \"latitude\" : \"48.860556\", \"longitude\" : \"2.3375\"},\r\n        {\"name\" : \"Sydney Opera House\", \"latitude\" : \"-33.85667\", \"longitude\" : \"151.2152778\"}],\r\n    \"earthRadius\" : \"80085\",\r\n    \"formula\"     : \"vincenty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: aidansim.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "795e4438-257e-48ec-a6a3-0414d24c3748",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse RequestType validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.requestType).to.eql(\"distances\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test DistanceResponse Distances validity\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.distances).to.eql([586, 5709, 8250, 6726])\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "3d059631-4730-4661-8260-38de92a92b27",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"requestType\"\t: \"distances\",\r\n\t\"places\"\t\t: [{\"name\": \"Paris, France\", \"latitude\": \"48.856389\", \"longitude\": \"2.351389\"},\r\n\t\t\t\t\t   {\"name\": \"Cork, Ireland\", \"latitude\": \"51.898889\", \"longitude\": \"-8.475278\"},\r\n\t\t\t\t\t   {\"name\": \"Kabwe, Zambia\", \"latitude\": \"-14.212222\", \"longitude\": \"28.439167\"},\r\n\t\t\t\t\t   {\"name\": \"Cuenca, Ecuador\", \"latitude\": \"-2.898889\", \"longitude\": \"-79.006389\"}],\r\n\t\"earthRadius\"\t: 4454,\r\n\t\"formula\"\t\t: \"vincenty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bagel: beverlyn.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68716b92-32de-4ed5-8276-05de73cabfe2",
+						"exec": [
+							"pm.test(\"Response is HTTP400 status\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "132441c9-9062-445b-96ee-46fd2b00b34e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [\n        {\n            \"name\": \"Tokyo, Japan\",\n            \"latitude\": \"35.689487\",\n            \"longitude\": \"139.691711\"\n        },\n        {\n            \"name\": \"Reykjavik, Iceland\",\n            \"latitude\": \"64.126518\",\n            \"longitude\": \"-21.817438\"\n        },\n        {\n            \"name\": \"Cape Town, South Africa\",\n            \"latitude\": \"-33.924870\",\n            \"longitude\": \"18.424055\"\n        },\n        {\n            \"name\": \"Jakarta, Indonesia\",\n            \"latitude\": \"-6.175110\",\n            \"longitude\": \"106.865036\"\n        }\n    ],\n    \"earthRadius\": 20000000,\n    \"formula\": \"vincenty\",\n    \"distances\": [\n        27617485,\n        35970386,\n        29764485,\n        18148381\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bagel: etaketa.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68716b92-32de-4ed5-8276-05de73cabfe2",
+						"exec": [
+							"pm.test(\"Response is HTTP400 status\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "690220bf-5539-4940-81a5-09feaccc4463",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\"    : \"distances\",\n    \"places\"         : [{\"name\": \"Općina Veliki Pisanica, Croatia\", \"latitude\":  \"45.889\",  \"longitude\": \"17.0987\"},\n                        {\"name\": \"Kuihelani Highway, Hawaii\", \"latitude\":  \"20.84\", \"longitude\": \"-156.49\"},\n                        {\"name\": \"Mizukami, Japan\", \"latitude\":  \"32.33\", \"longitude\": \"131.06\"},\n                        {\"name\": \"Chuuk, Federated States of Micronesia\", \"latitude\":  \"7.32\", \"longitude\": \"151.83\"}],\n    \"earthRadius\"    : 151.157763,\n    \"formula\"        : \"vincenty\",\n    \"distances\"      : [298, 171, 83, 299]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bagel: ayushad.json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68716b92-32de-4ed5-8276-05de73cabfe2",
+						"exec": [
+							"pm.test(\"Response is HTTP400 status\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "911d91c8-a29e-4568-8d14-2d79682fbbbe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"distances\",\n    \"places\": [\n        {\"name\": \"Never, Amur Oblast, Russia\", \"latitude\": \"53.9766\", \"longitude\": \"124.1388\"},\n        {\"name\": \"Gonna, West Bengal, India\", \"latitude\": \"23.4576\", \"longitude\": \"87.6803\"},\n        {\"name\": \"Give, Denmark\", \"latitude\": \"55.8454\", \"longitude\": \"9.2370\"},\n        {\"name\": \"Youx, France\", \"latitude\": \"46.1454\", \"longitude\": \"2.7985\"},\n        {\"name\": \"Upi, Philippines\", \"latitude\": \"7.0186\", \"longitude\": \"124.1752\"},\n        {\"name\": \"North Pole\", \"latitude\": \"90.0\", \"longitude\": \"0.0\"},\n        {\"name\": \"South Pole\", \"latitude\": \"-90.0\", \"longitude\": \"0.0\"},\n        {\"name\": \"Greenwich, England\", \"latitude\": \"51.4769\", \"longitude\": \"-0.0005\"},\n        {\"name\": \"Rio de Janeiro, Brazil\", \"latitude\": \"-22.9068\", \"longitude\": \"-43.1729\"},\n        {\"name\": \"New York City, USA\", \"latitude\": \"40.7128\", \"longitude\": \"-74.0060\"},\n        {\"name\": \"Auckland, New Zealand\", \"latitude\": \"-36.8485\", \"longitude\": \"174.7633\"},\n        {\"name\": \"Cape Town, South Africa\", \"latitude\": \"-33.9249\", \"longitude\": \"18.4241\"}\n    ],\n    \"earthRadius\": 271828,\n    \"formula\": \"vincenty\",\n    \"distances\": [194034, 305380, 49822, 501278, 393688, 853973, 671208, 395961, 331051, 605602, 502287, 596363]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

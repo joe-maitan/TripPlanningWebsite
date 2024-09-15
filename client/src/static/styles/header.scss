@@ -1,0 +1,51 @@
+$header-height: 8vh;
+$footer-height: 6vh;
+$map-top: $header-height + 2.5vh;
+$scrollbar-width: calc(100vw - 100%);
+
+// Background of Header / Footer
+
+.full-width {
+    width: 100%;
+
+    background-color: $primary;
+    color: #FFFFFF;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Body Styles
+
+.body {
+    padding-left: $scrollbar-width;
+    margin-top: $map-top;
+    margin-bottom: $footer-height;
+    position: relative;
+    z-index: 1;
+}
+
+// Header Styles
+
+.header {
+    position: fixed;
+    padding-left: $scrollbar-width;
+    top: 0;
+    height: $header-height;
+    z-index: 2;
+}
+
+.header-title{
+    align-self: end;
+}
+
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-item{
+    display: flex;
+    align-items: baseline;
+}

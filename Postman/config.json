@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "75348ede-0eb7-4258-b518-b63b9e4b74dd",
+		"name": "config",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25883428-75348ede-0eb7-4258-b518-b63b9e4b74dd"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68fa0607-854c-408a-a323-bf3166e7fa22",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"pm.collectionVariables.set(\"TEAM_NAME\", \"t25 What Are The Odds?\");",
+							"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "3505cc6d-4baa-4ea5-a884-6f4ea9d87047",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"config\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "bee34078-af05-4e1b-9e8a-df0f0506785f",
+			"key": "TEAM_NAME",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "4824b858-018c-4a86-a80a-b0d52a644575",
+		"name": "314-api-tests",
+		"description": "This collection contains tests for the various API requests in the CS314 webapp.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25883428-4824b858-018c-4a86-a80a-b0d52a644575"
+	},
+	"item": [
+		{
+			"name": "config",
+			"item": [
+				{
+					"name": "Config Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c51367f2-7c3c-40c1-9151-f9dbf6df1dae",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Server-side team name is correct\", () => {",
+									"    const response = pm.response.json();",
+									"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");",
+									"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0f7f1f0a-dad2-439f-86c8-d268bd226450",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestType\": \"config\",\n    \"features\": [\"config\"] \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/config",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"config"
+							]
+						},
+						"description": "Testing the result of Config Post requests."
+					},
+					"response": []
+				}
+			],
+			"id": "370698bd-e794-4a76-92ff-674f0bb0fba4"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "aec5edbb-9835-4694-9e6c-8391799de835",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "70124bf5-8900-45b3-bc1c-ddc49626dd25",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "22c08a32-9998-468c-85d7-69413301b916",
+			"key": "BASE_URL",
+			"value": "http://localhost:8000"
+		},
+		{
+			"id": "5f2ce70e-9dbb-408b-8a9a-b178e433aa18",
+			"key": "TEAM_NAME",
+			"value": "t25 What Are The Odds?"
+		}
+	]
+}

@@ -1,0 +1,96 @@
+{
+  "scripts": {
+    "test": "jest --coverageDirectory=${BUILD_DIRECTORY_PREFIX}/target/coverage/client/",
+    "devClient": "webpack serve --env CLIENT_PORT=${CLIENT_PORT} --env SERVER_PORT=${SERVER_PORT} --env CLIENT_LOG_LEVEL=INFO --env BUILD_DIRECTORY_PREFIX=$BUILD_DIRECTORY_PREFIX --mode 'development'",
+    "prodClient": "webpack --env CLIENT_LOG_LEVEL=ERROR --env BUILD_DIRECTORY_PREFIX=$BUILD_DIRECTORY_PREFIX --mode 'production' --define-process-env-node-env production",
+    "devServer": "java -Dorg.slf4j.simpleLogger.log.com.tco=info -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 $BUILD_DIRECTORY_PREFIX/target/server-local.jar ${SERVER_PORT}",
+    "server": "java -Dorg.slf4j.simpleLogger.log.com.tco=info -jar $BUILD_DIRECTORY_PREFIX/target/server-local.jar ${SERVER_PORT}",
+    "dev": "concurrently \"npm run devServer\" \"npm run devClient\""
+  },
+  "dependencies": { 
+    "@material-ui/core": "^4.12.4",
+    "ajv": "^6.12.5",
+    "bootstrap": "^5.2.x",
+    "coordinate-parser": "^1.0.7",
+    "leaflet": "^1.9.3",
+    "newman": "^5.3.2",
+    "notistack": "1.0.10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-leaflet": "^2.8.0",
+    "react-leaflet-control": "^2.1.2",
+    "reactstrap": "^9.1.5",
+    "sass": "1.63.6",
+    "ulog": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@babel/plugin-transform-async-to-generator": "^7.20.7",
+    "@babel/plugin-transform-object-assign": "^7.18.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/runtime": "^7.20.13",
+    "@babel/standalone": "^7.20.13",
+    "@jest/globals": "^29.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "11.2.6",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^13.2.1",
+    "autoprefixer": "9.7.6",
+    "babel-jest": "^26.0.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.6.0",
+    "core-js": "^3.27.2",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "5.5.0",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1",
+    "jest-fetch-mock": "^3.0.3",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "react-icons": "^4.7.1",
+    "regenerator-runtime": "^0.13.5",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/**.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/coverage/*",
+      "/dist/*",
+      "/node_modules/*",
+      "/schemas/*",
+      "/templates/*",
+      "/test/*",
+      "/webpack.config.js"
+    ],
+    "testURL": "http://localhost/",
+    "moduleNameMapper": {
+      "^.+\\.(png|svg|gif|jpg|jpeg)$": "<rootDir>/test/jestConfig/require_stub.js",
+      "^.+\\.(css|scss)$": "<rootDir>/test/jestConfig/require_stub.js",
+      "^@components/(.*)$": "<rootDir>/src/components/$1",
+      "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "^@models/(.*)$": "<rootDir>/src/models/$1",
+      "^@static/(.*)$": "<rootDir>/src/static/$1",
+      "^@utils/(.*)$": "<rootDir>/src/utils/$1"
+    },
+    "automock": false,
+    "setupFiles": [
+      "<rootDir>/test/jestConfig/setupJest.js"
+    ],
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}

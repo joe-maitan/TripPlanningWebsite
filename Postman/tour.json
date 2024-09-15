@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "ed9c1a23-0f1e-4f86-9d4c-dfd40d7b77c9",
+		"name": "tour",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25883428-ed9c1a23-0f1e-4f86-9d4c-dfd40d7b77c9"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3e19e99-871a-4b71-9db4-4358fd3cc163",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "eab0ecb7-0455-4a08-ab99-6860e950d6b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"tour\",\n    \"earthRadius\": 6371.0,\n    \"places\": [\n        \n        {\"latitude\": \"40.730610\", \"longitude\": \"-73.935242\"}, \n        {\"latitude\": \"34.052235\", \"longitude\": \"-118.243683\"}, \n        {\"latitude\": \"37.773972\", \"longitude\": \"-122.431297\"}  \n    ],\n    \"response\": 1.0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: TourRequest Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f06097a-2416-487c-a203-57bdb6f9f3e9",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"jjmaitan TourRequest response time\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.response).to.lessThan(1.1)\r",
+							" });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "c6363a75-f835-4ee6-92af-4b77dd29a99b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\":\"tour\",\r\n    \"earthRadius\": 72.0,\r\n    \"response\": 0.72,\r\n    \"places\":[\r\n       {\r\n          \"name\":\"Wild Blue Yonder Brewing Co.\",\r\n          \"municipality\":\"Castle Rock\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"39.375160\",\r\n          \"longitude\":\"-104.860268\",\r\n          \"notes\":\"Cool little local brewery\"\r\n       },\r\n       {\r\n          \"name\":\"Three Barrel Brewing Company\",\r\n          \"municipality\":\"Del Norte\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"37.678667\",\r\n          \"longitude\":\"-106.356520\",\r\n          \"notes\":\"Cadens CO Brew\"\r\n       },\r\n       {\r\n          \"name\":\"Sunroom Brewing\",\r\n          \"municipality\":\"Englewood\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"39.65805\",\r\n          \"longitude\":\"-104.98857\",\r\n          \"notes\":\"Jays CO Brew\"\r\n       },\r\n       {\r\n          \"name\":\"Oskar Blues Tasty Weasel Taproom\",\r\n          \"municipality\":\"Longmont\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"40.139193\",\r\n          \"longitude\":\"-105.122789\",\r\n          \"notes\":\"Tylers CO Brew\"\r\n       },\r\n       {\r\n          \"name\":\"Bulzomi Brewing\",\r\n          \"municipality\":\"Eaton\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"40.527850\",\r\n          \"longitude\":\"-104.711770\",\r\n          \"notes\":\"Jadens CO Brew\"\r\n       },\r\n       {\r\n          \"name\":\"Shamrock Brewing Company\",\r\n          \"municipality\":\"Pueblo\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"38.1610\",\r\n          \"longitude\":\"-104.3627\",\r\n          \"notes\":\"Erins CO Brew\"\r\n       },\r\n       {\r\n          \"name\":\"New Belgium Brewing Company\",\r\n          \"municipality\":\"Fort Collins\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"40.593212\",\r\n          \"longitude\":\"-105.068567\",\r\n          \"notes\":\"Staple of Fort Collins\"\r\n       },\r\n       {\r\n          \"name\":\"SweetWater Brewing Company\",\r\n          \"municipality\":\"Fort Collins\",\r\n          \"region\": \"Colorado\",\r\n          \"country\": \"United States\",\r\n          \"latitude\":\"40.5891748\",\r\n          \"longitude\":\"-105.0611475\",\r\n          \"notes\":\"Another staple of Fort Collins\"\r\n       }\r\n    ]\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jjmaitan: etaketa.json tour test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16993e8b-def5-4940-8fde-b8ff87b4a502",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"jjmaitan test etaketa response time\", () => {\r",
+							"    var jsonData = pm.response.json()\r",
+							"    pm.expect(jsonData.response).to.lessThan(1.1);\r",
+							" });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "4b92fdb8-51b0-49cc-b0e7-9bf72b14c97e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\"    : \"tour\",\r\n    \"earthRadius\"    : 151.157763,\r\n    \"response\"       : 0.7,\r\n    \"places\"         : [\r\n                        {\r\n                         \"name\": \"University of Zadar\", \r\n                         \"latitude\":  \"44.1114\",  \r\n                         \"longitude\": \"15.2261\", \r\n                         \"municipality\": \"Zadar\",\r\n                         \"region\": \"Ravni Kotari\",\r\n                         \"country\": \"Croatia\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Kuihelani Highway\",\r\n                         \"latitude\":  \"20.84\",\r\n                         \"longitude\": \"-156.49\",\r\n                         \"municipality\": \"Kahului\",\r\n                         \"region\": \"Hawaii\",\r\n                         \"country\": \"United States\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Kotoku-in Temple\", \r\n                         \"latitude\":  \"35.3168\", \r\n                         \"longitude\": \"139.5357\", \r\n                         \"municipality\": \"Kamakura\", \r\n                         \"region\": \"Kanagawa\",\r\n                         \"country\": \"Japan\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Sydney Opera House\", \r\n                         \"latitude\":  \"-33.856159\", \r\n                         \"longitude\": \"151.2153\", \r\n                         \"municipality\": \"Sydney\", \r\n                         \"region\": \"New South Wales\",\r\n                         \"country\": \"Australia\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Denali\", \r\n                         \"latitude\":  \"63.0692\", \r\n                         \"longitude\": \"-151.197418\", \r\n                         \"municipality\": \"Healy\", \r\n                         \"region\": \"Alaska\",\r\n                         \"country\": \"United States\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Eiffel Tower\", \r\n                         \"latitude\":  \"48.8584\", \r\n                         \"longitude\": \"2.2945\", \r\n                         \"municipality\": \"Paris\", \r\n                         \"region\": \"Ile-de-France\",\r\n                         \"country\": \"France\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Machu Picchu\", \r\n                         \"latitude\":  \"-13.163068\", \r\n                         \"longitude\": \"-72.545128\", \r\n                         \"municipality\": \"Cusco\", \r\n                         \"region\": \"Urubamba\",\r\n                         \"country\": \"Peru\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Taj Mahal\", \r\n                         \"latitude\":  \"27.1751\", \r\n                         \"longitude\": \"78.0421\", \r\n                         \"municipality\": \"Agra\", \r\n                         \"region\": \"Uttar Pradesh\",\r\n                         \"country\": \"India\"\r\n                        },\r\n                        {\r\n                         \"name\": \"Rano Raraku\", \r\n                         \"latitude\":  \"-27.1239\",  \r\n                         \"longitude\": \"-109.2861\", \r\n                         \"municipality\": \"Easter Island\",\r\n                         \"region\": \"Valparaiso\",\r\n                         \"country\": \"Chile\"\r\n                        },\r\n                        {\r\n                         \"name\": \"University of Zadar\", \r\n                         \"latitude\":  \"44.1114\",  \r\n                         \"longitude\": \"15.2261\", \r\n                         \"municipality\": \"Zadar\",\r\n                         \"region\": \"Ravni Kotari\",\r\n                         \"country\": \"Croatia\"\r\n                        }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "caden147: nwhisler.json tour test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a69ced6-a64f-40c2-b480-c8afc7022fd2",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "5b5cb632-53b6-4fb5-a7b0-768cad118570",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"tour\",\r\n    \"earthRadius\": 2789,\r\n    \"response\": 0.5,\r\n    \"places\": [\r\n        {\r\n            \"name\": \"Kinali\",\r\n            \"latitude\": \"0.0000\",\r\n            \"longitude\": \"100.0000\",\r\n            \"municipality\": \"West Pasaman Regency\",\r\n            \"region\": \"West Sumatra\",\r\n            \"country\": \"Indonesia\"\r\n        },\r\n        {\r\n            \"name\": \"Royston\",\r\n            \"latitude\": \"52.0000\",\r\n            \"longitude\": \"0.0000\",\r\n            \"municipality\": \"Royston\",\r\n            \"region\": \"Hertfordshire\",\r\n            \"country\": \"United Kingdom\"\r\n        },\r\n        {\r\n            \"name\": \"Nkozi\",\r\n            \"latitude\": \"0.0000\",\r\n            \"longitude\": \"-32.0000\",\r\n            \"municipality\": \"Nkozi\",\r\n            \"region\": \"Mpigi\",\r\n            \"country\": \"Uganda\"\r\n        },\r\n        {\r\n            \"name\": \"Kinsley\",\r\n            \"latitude\": \"37.5522\",\r\n            \"longitude\": \"-99.2435\",\r\n            \"municipality\": \"Edwards County\",\r\n            \"region\": \"Kansas\",\r\n            \"country\": \"United States\"\r\n        },\r\n        {\r\n            \"name\": \"Mexico City\",\r\n            \"latitude\": \"19.2609\",\r\n            \"longitude\": \"-99.0805\",\r\n            \"municipality\": \"Mexico City\",\r\n            \"region\": \"CDMX\",\r\n            \"country\": \"Mexico\"\r\n        },\r\n        {\r\n            \"name\": \"Bogota\",\r\n            \"latitude\": \"4.4239\",\r\n            \"longitude\": \"-74.0419\",\r\n            \"municipality\": \"Bogota\",\r\n            \"region\": \"Capital District\",\r\n            \"country\": \"Colombia\"\r\n        },\r\n        {\r\n            \"name\": \"La Paz\",\r\n            \"latitude\": \"-14.0345\",\r\n            \"longitude\": \"-63.2657\",\r\n            \"municipality\": \"La Paz\",\r\n            \"region\": \"La Paz\",\r\n            \"country\": \"Bolivia\"\r\n        },\r\n        {\r\n            \"name\": \"Colquechaca\",\r\n            \"latitude\": \"-19.0558\",\r\n            \"longitude\": \"-66.2061\",\r\n            \"municipality\": \"Chayanta\",\r\n            \"region\": \"Potosi\",\r\n            \"country\": \"Bolivia\"\r\n        },\r\n        {\r\n            \"name\": \"General Mosconi\",\r\n            \"latitude\": \"-22.9655\",\r\n            \"longitude\": \"-63.7259\",\r\n            \"municipality\": \"Salta Province\",\r\n            \"region\": \"Northwestern\",\r\n            \"country\": \"Argentina\"\r\n        },\r\n        {\r\n            \"name\": \"Nagoya\",\r\n            \"latitude\": \"35.9283\",\r\n            \"longitude\": \"137.9596\",\r\n            \"municipality\": \"Nagoya\",\r\n            \"region\": \"Honshu\",\r\n            \"country\": \"Japan\"\r\n        },\r\n        {\r\n            \"name\": \"Yulara\",\r\n            \"latitude\": \"-26.0867\",\r\n            \"longitude\": \"131.8187\",\r\n            \"municipality\": \"Yulara\",\r\n            \"region\": \"MacDonnell\",\r\n            \"country\": \"Australia\"\r\n        },\r\n        {\r\n            \"name\": \"Mildura\",\r\n            \"latitude\": \"-35.1307\",\r\n            \"longitude\": \"86.6177\",\r\n            \"municipality\": \"Mildura\",\r\n            \"region\": \"Victoria\",\r\n            \"country\": \"Australia\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bagel: beverlyn tour test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52fbf2c9-546f-426a-bac4-f010dcc3c0c0",
+						"exec": [
+							"pm.test(\"bagel: Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"bagel: Response time is less than 0.22s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(220);",
+							"});",
+							"",
+							" "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d446c892-f1de-4c0c-815f-f2e888c06a9d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"requestType\": \"tour\",\n    \"earthRadius\": 2000,\n    \"response\": 0.22,\n    \"places\": [\n        {\n            \"name\": \"Reykjavik\",\n            \"latitude\": \"64.1466\",\n            \"longitude\": \"-21.9426\",\n            \"municipality\": \"Reykjavik\",\n            \"region\": \"Capital Region\",\n            \"country\": \"Iceland\"\n        },\n        {\n            \"name\": \"Marrakech\",\n            \"latitude\": \"31.6295\",\n            \"longitude\": \"-7.9811\",\n            \"municipality\": \"Marrakech\",\n            \"region\": \"Marrakech-Safi\",\n            \"country\": \"Morocco\"\n        },\n        {\n            \"name\": \"Hanoi\",\n            \"latitude\": \"21.0285\",\n            \"longitude\": \"105.8542\",\n            \"municipality\": \"Hanoi\",\n            \"region\": \"Red River Delta\",\n            \"country\": \"Vietnam\"\n        },\n        {\n            \"name\": \"Banff\",\n            \"latitude\": \"51.1784\",\n            \"longitude\": \"-115.5708\",\n            \"municipality\": \"Banff\",\n            \"region\": \"Alberta\",\n            \"country\": \"Canada\"\n        },\n        {\n            \"name\": \"Osaka\",\n            \"latitude\": \"34.6937\",\n            \"longitude\": \"135.5022\",\n            \"municipality\": \"Osaka\",\n            \"region\": \"Kansai\",\n            \"country\": \"Japan\"\n        },\n        {\n            \"name\": \"Auckland\",\n            \"latitude\": \"-36.8485\",\n            \"longitude\": \"174.7633\",\n            \"municipality\": \"Auckland\",\n            \"region\": \"Auckland\",\n            \"country\": \"New Zealand\"\n        },\n        {\n            \"name\": \"Siem Reap\",\n            \"latitude\": \"13.3671\",\n            \"longitude\": \"103.8449\",\n            \"municipality\": \"Siem Reap\",\n            \"region\": \"Siem Reap Province\",\n            \"country\": \"Cambodia\"\n        },\n        {\n            \"name\": \"Bergen\",\n            \"latitude\": \"60.3913\",\n            \"longitude\": \"5.3221\",\n            \"municipality\": \"Bergen\",\n            \"region\": \"Vestland\",\n            \"country\": \"Norway\"\n        },\n        {\n            \"name\": \"Salzburg\",\n            \"latitude\": \"47.8095\",\n            \"longitude\": \"13.0550\",\n            \"municipality\": \"Salzburg\",\n            \"region\": \"Salzburg\",\n            \"country\": \"Austria\"\n        },\n        {\n            \"name\": \"Casablanca\",\n            \"latitude\": \"33.5731\",\n            \"longitude\": \"-7.5898\",\n            \"municipality\": \"Casablanca\",\n            \"region\": \"Casablanca-Settat\",\n            \"country\": \"Morocco\"\n        },\n        {\n            \"name\": \"Santorini\",\n            \"latitude\": \"36.3932\",\n            \"longitude\": \"25.4615\",\n            \"municipality\": \"Thira\",\n            \"region\": \"South Aegean\",\n            \"country\": \"Greece\"\n        },\n        {\n            \"name\": \"Zurich\",\n            \"latitude\": \"47.3769\",\n            \"longitude\": \"8.5417\",\n            \"municipality\": \"Zurich\",\n            \"region\": \"Zurich\",\n            \"country\": \"Switzerland\"\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tjolsonx: TourRequest Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b28702da-31fa-481c-92c4-04469e5fac1c",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"jjmaitan TourRequest response time\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.response).to.lessThan(1.1)\r",
+							" });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "9b691049-60de-4a28-818f-5de4cf6a5ac8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\"    : \"tour\",\r\n    \"earthRadius\"    : 1.0,\r\n    \"response\"       : 0.5,\r\n    \"places\"         : [{\r\n        \"name\": \"Turukhansky District\",\r\n        \"latitude\": \"40.57\",\r\n        \"longitude\": \"-105.10\",\r\n        \"municipality\": \"Turukhansky District\",\r\n        \"region\": \"Siberian Federal District\",\r\n        \"country\": \"Russia\"\r\n      },{\r\n        \"name\": \"Medicine Bow\",\r\n        \"latitude\": \"41.89\",\r\n        \"longitude\": \"-106.20\",\r\n        \"municipality\": \"Medicine Bow\",\r\n        \"region\": \"Wyoming\",\r\n        \"country\": \"United States\"\r\n      },{\r\n        \"name\": \"Cherry County\",\r\n        \"latitude\": \"42.23\",\r\n        \"longitude\": \"-100.37\",\r\n        \"municipality\": \"Cherry County\",\r\n        \"region\": \"Cherry County\",\r\n        \"country\": \"Nebraska\"\r\n      },{\r\n        \"name\": \"Pathrad\",\r\n        \"latitude\": \"20.45\",\r\n        \"longitude\": \"78.39\",\r\n        \"municipality\": \"Pathrad\",\r\n        \"region\": \"Maharashtra\",\r\n        \"country\": \"India\"\r\n      },{\r\n        \"name\": \"Pastoral Unincorporated Area\",\r\n        \"latitude\": \"-28.42\",\r\n        \"longitude\": \"135.35\",\r\n        \"municipality\": \"Pastoral Unincorporated Area\",\r\n        \"region\": \"South Australia\",\r\n        \"country\": \"Australia\"\r\n      },{\r\n        \"name\": \"Khas Uruzgan\",\r\n        \"latitude\": \"32.79\",\r\n        \"longitude\": \"66.44\",\r\n        \"municipality\": \"Khas Uruzgan\",\r\n        \"region\": \"Uruzgan Province\",\r\n        \"country\": \"Afghanistan\"\r\n      },{\r\n        \"name\": \"Bad Lobenstein\",\r\n        \"latitude\": \"50.46\",\r\n        \"longitude\": \"11.60\",\r\n        \"municipality\": \"Bad Lobenstein\",\r\n        \"region\": \"Thuringia\",\r\n        \"country\": \"Germany\"\r\n      },{\r\n        \"name\": \"Partido de General Villegas\",\r\n        \"latitude\": \"-34.43\",\r\n        \"longitude\": \"-62.58\",\r\n        \"municipality\": \"Partido de General Villegas\",\r\n        \"region\": \"Buenos Aires\",\r\n        \"country\": \"Argentina\"\r\n      }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tjolsonx: TourTiming250 Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dd3b9151-6c38-4250-a024-971d41822d65",
+						"exec": [
+							"pm.environment.set(\"startTime\", new Date().getTime());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8304ade3-532d-4f13-af80-19f29dd4d7fd",
+						"exec": [
+							"let startTime = pm.environment.get(\"startTime\");\r",
+							"let endTime = new Date().getTime();\r",
+							"let duration = endTime - startTime;\r",
+							"\r",
+							"console.log(`Execution Time: ${duration} ms`);\r",
+							"\r",
+							"// Check execution time and set test result\r",
+							"pm.test(\"Execution should complete within 900 milliseconds\", function () {\r",
+							"    pm.expect(duration).to.be.below(900);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "2520ab36-2053-4d5e-bb89-91a9941ebbe3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestType\": \"tour\",\r\n  \"earthRadius\": 6371,\r\n  \"formula\": \"vincenty\",\r\n  \"response\": 1,\r\n \"places\":[\r\n    {\"name\":\"S61.0 W150.7\", \"latitude\":\"-61.0\", \"longitude\":\"-150.7\"},\r\n    {\"name\":\"N13.6 E44.7\", \"latitude\":\"13.6\", \"longitude\":\"44.7\"},\r\n    {\"name\":\"S58.4 E120.8\", \"latitude\":\"-58.4\", \"longitude\":\"120.8\"},\r\n    {\"name\":\"N59.9 E74.4\", \"latitude\":\"59.9\", \"longitude\":\"74.4\"},\r\n    {\"name\":\"S0.8 E163.6\", \"latitude\":\"-0.8\", \"longitude\":\"163.6\"},\r\n    {\"name\":\"N45.9 W43.2\", \"latitude\":\"45.9\", \"longitude\":\"-43.2\"},\r\n    {\"name\":\"N0.5 W76.5\", \"latitude\":\"0.5\", \"longitude\":\"-76.5\"},\r\n    {\"name\":\"N61.0 W164.9\", \"latitude\":\"61.0\", \"longitude\":\"-164.9\"},\r\n    {\"name\":\"N14.1 E73.6\", \"latitude\":\"14.1\", \"longitude\":\"73.6\"},\r\n    {\"name\":\"S15.8 E29.0\", \"latitude\":\"-15.8\", \"longitude\":\"29.0\"},\r\n    {\"name\":\"N45.6 W0.7\", \"latitude\":\"45.6\", \"longitude\":\"-0.7\"},\r\n    {\"name\":\"N31.3 W106.0\", \"latitude\":\"31.3\", \"longitude\":\"-106.0\"},\r\n    {\"name\":\"N31.0 W164.0\", \"latitude\":\"31.0\", \"longitude\":\"-164.0\"},\r\n    {\"name\":\"S74.7 W60.8\", \"latitude\":\"-74.7\", \"longitude\":\"-60.8\"},\r\n    {\"name\":\"S73.1 W76.6\", \"latitude\":\"-73.1\", \"longitude\":\"-76.6\"},\r\n    {\"name\":\"S74.1 W28.3\", \"latitude\":\"-74.1\", \"longitude\":\"-28.3\"},\r\n    {\"name\":\"N16.0 W0.4\", \"latitude\":\"16.0\", \"longitude\":\"-0.4\"},\r\n    {\"name\":\"S46.4 W106.5\", \"latitude\":\"-46.4\", \"longitude\":\"-106.5\"},\r\n    {\"name\":\"S45.1 E15.2\", \"latitude\":\"-45.1\", \"longitude\":\"15.2\"},\r\n    {\"name\":\"N75.4 E74.1\", \"latitude\":\"75.4\", \"longitude\":\"74.1\"},\r\n    {\"name\":\"S13.3 W75.4\", \"latitude\":\"-13.3\", \"longitude\":\"-75.4\"},\r\n    {\"name\":\"S76.0 E163.7\", \"latitude\":\"-76.0\", \"longitude\":\"163.7\"},\r\n    {\"name\":\"S16.6 W105.8\", \"latitude\":\"-16.6\", \"longitude\":\"-105.8\"},\r\n    {\"name\":\"N14.3 E16.5\", \"latitude\":\"14.3\", \"longitude\":\"16.5\"},\r\n    {\"name\":\"N13.4 W120.7\", \"latitude\":\"13.4\", \"longitude\":\"-120.7\"},\r\n    {\"name\":\"S44.0 E134.7\", \"latitude\":\"-44.0\", \"longitude\":\"134.7\"},\r\n    {\"name\":\"N16.8 W59.2\", \"latitude\":\"16.8\", \"longitude\":\"-59.2\"},\r\n    {\"name\":\"N45.9 W118.9\", \"latitude\":\"45.9\", \"longitude\":\"-118.9\"},\r\n    {\"name\":\"S58.8 E44.9\", \"latitude\":\"-58.8\", \"longitude\":\"44.9\"},\r\n    {\"name\":\"S16.2 W164.2\", \"latitude\":\"-16.2\", \"longitude\":\"-164.2\"},\r\n    {\"name\":\"N1.8 W150.5\", \"latitude\":\"1.8\", \"longitude\":\"-150.5\"},\r\n    {\"name\":\"S13.1 E135.2\", \"latitude\":\"-13.1\", \"longitude\":\"135.2\"},\r\n    {\"name\":\"S29.0 W106.3\", \"latitude\":\"-29.0\", \"longitude\":\"-106.3\"},\r\n    {\"name\":\"N43.4 W136.4\", \"latitude\":\"43.4\", \"longitude\":\"-136.4\"},\r\n    {\"name\":\"S30.6 W164.3\", \"latitude\":\"-30.6\", \"longitude\":\"-164.3\"},\r\n    {\"name\":\"N75.7 E135.1\", \"latitude\":\"75.7\", \"longitude\":\"135.1\"},\r\n    {\"name\":\"N73.7 W13.3\", \"latitude\":\"73.7\", \"longitude\":\"-13.3\"},\r\n    {\"name\":\"N31.7 W76.7\", \"latitude\":\"31.7\", \"longitude\":\"-76.7\"},\r\n    {\"name\":\"N28.3 W1.3\", \"latitude\":\"28.3\", \"longitude\":\"-1.3\"},\r\n    {\"name\":\"S74.0 W0.7\", \"latitude\":\"-74.0\", \"longitude\":\"-0.7\"},\r\n    {\"name\":\"N16.7 W134.1\", \"latitude\":\"16.7\", \"longitude\":\"-134.1\"},\r\n    {\"name\":\"S1.7 E0.4\", \"latitude\":\"-1.7\", \"longitude\":\"0.4\"},\r\n    {\"name\":\"N73.1 W106.1\", \"latitude\":\"73.1\", \"longitude\":\"-106.1\"},\r\n    {\"name\":\"N60.0 E13.8\", \"latitude\":\"60.0\", \"longitude\":\"13.8\"},\r\n    {\"name\":\"N75.9 W31.1\", \"latitude\":\"75.9\", \"longitude\":\"-31.1\"},\r\n    {\"name\":\"N43.8 E105.9\", \"latitude\":\"43.8\", \"longitude\":\"105.9\"},\r\n    {\"name\":\"N28.6 W91.0\", \"latitude\":\"28.6\", \"longitude\":\"-91.0\"},\r\n    {\"name\":\"S58.2 W88.2\", \"latitude\":\"-58.2\", \"longitude\":\"-88.2\"},\r\n    {\"name\":\"S59.5 W30.7\", \"latitude\":\"-59.5\", \"longitude\":\"-30.7\"},\r\n    {\"name\":\"N60.2 W119.7\", \"latitude\":\"60.2\", \"longitude\":\"-119.7\"},\r\n    {\"name\":\"S74.5 W149.2\", \"latitude\":\"-74.5\", \"longitude\":\"-149.2\"},\r\n    {\"name\":\"S28.3 E165.5\", \"latitude\":\"-28.3\", \"longitude\":\"165.5\"},\r\n    {\"name\":\"S16.1 W31.5\", \"latitude\":\"-16.1\", \"longitude\":\"-31.5\"},\r\n    {\"name\":\"S15.2 E119.0\", \"latitude\":\"-15.2\", \"longitude\":\"119.0\"},\r\n    {\"name\":\"N14.9 E133.8\", \"latitude\":\"14.9\", \"longitude\":\"133.8\"},\r\n    {\"name\":\"N74.5 E166.7\", \"latitude\":\"74.5\", \"longitude\":\"166.7\"},\r\n    {\"name\":\"S30.1 E1.6\", \"latitude\":\"-30.1\", \"longitude\":\"1.6\"},\r\n    {\"name\":\"S76.5 E46.9\", \"latitude\":\"-76.5\", \"longitude\":\"46.9\"},\r\n    {\"name\":\"N1.4 W120.6\", \"latitude\":\"1.4\", \"longitude\":\"-120.6\"},\r\n    {\"name\":\"N45.2 E14.2\", \"latitude\":\"45.2\", \"longitude\":\"14.2\"},\r\n    {\"name\":\"N0.7 W16.8\", \"latitude\":\"0.7\", \"longitude\":\"-16.8\"},\r\n    {\"name\":\"S76.6 W136.2\", \"latitude\":\"-76.6\", \"longitude\":\"-136.2\"},\r\n    {\"name\":\"S75.4 E29.9\", \"latitude\":\"-75.4\", \"longitude\":\"29.9\"},\r\n    {\"name\":\"N44.4 E46.7\", \"latitude\":\"44.4\", \"longitude\":\"46.7\"},\r\n    {\"name\":\"S29.6 W135.1\", \"latitude\":\"-29.6\", \"longitude\":\"-135.1\"},\r\n    {\"name\":\"N58.6 W0.5\", \"latitude\":\"58.6\", \"longitude\":\"-0.5\"},\r\n    {\"name\":\"N73.2 E30.5\", \"latitude\":\"73.2\", \"longitude\":\"30.5\"},\r\n    {\"name\":\"N61.3 E45.4\", \"latitude\":\"61.3\", \"longitude\":\"45.4\"},\r\n    {\"name\":\"S59.6 E136.8\", \"latitude\":\"-59.6\", \"longitude\":\"136.8\"},\r\n    {\"name\":\"N46.3 E121.2\", \"latitude\":\"46.3\", \"longitude\":\"121.2\"},\r\n    {\"name\":\"N0.7 E43.4\", \"latitude\":\"0.7\", \"longitude\":\"43.4\"},\r\n    {\"name\":\"N44.4 W164.0\", \"latitude\":\"44.4\", \"longitude\":\"-164.0\"},\r\n    {\"name\":\"S59.0 E75.8\", \"latitude\":\"-59.0\", \"longitude\":\"75.8\"},\r\n    {\"name\":\"N0.3 W135.3\", \"latitude\":\"0.3\", \"longitude\":\"-135.3\"},\r\n    {\"name\":\"S29.5 W149.6\", \"latitude\":\"-29.5\", \"longitude\":\"-149.6\"},\r\n    {\"name\":\"N28.2 E44.3\", \"latitude\":\"28.2\", \"longitude\":\"44.3\"},\r\n    {\"name\":\"N74.9 E121.6\", \"latitude\":\"74.9\", \"longitude\":\"121.6\"},\r\n    {\"name\":\"N30.3 W61.2\", \"latitude\":\"30.3\", \"longitude\":\"-61.2\"},\r\n    {\"name\":\"S46.3 E104.6\", \"latitude\":\"-46.3\", \"longitude\":\"104.6\"},\r\n    {\"name\":\"N30.9 W119.0\", \"latitude\":\"30.9\", \"longitude\":\"-119.0\"},\r\n    {\"name\":\"N28.5 W151.4\", \"latitude\":\"28.5\", \"longitude\":\"-151.4\"},\r\n    {\"name\":\"N61.8 E136.5\", \"latitude\":\"61.8\", \"longitude\":\"136.5\"},\r\n    {\"name\":\"N13.4 W16.4\", \"latitude\":\"13.4\", \"longitude\":\"-16.4\"},\r\n    {\"name\":\"S46.3 W136.5\", \"latitude\":\"-46.3\", \"longitude\":\"-136.5\"},\r\n    {\"name\":\"N28.7 E134.7\", \"latitude\":\"28.7\", \"longitude\":\"134.7\"},\r\n    {\"name\":\"S43.6 W16.6\", \"latitude\":\"-43.6\", \"longitude\":\"-16.6\"},\r\n    {\"name\":\"N46.0 E74.7\", \"latitude\":\"46.0\", \"longitude\":\"74.7\"},\r\n    {\"name\":\"S45.9 W30.6\", \"latitude\":\"-45.9\", \"longitude\":\"-30.6\"},\r\n    {\"name\":\"S30.6 E75.4\", \"latitude\":\"-30.6\", \"longitude\":\"75.4\"},\r\n    {\"name\":\"S46.3 E118.9\", \"latitude\":\"-46.3\", \"longitude\":\"118.9\"},\r\n    {\"name\":\"N76.2 W119.3\", \"latitude\":\"76.2\", \"longitude\":\"-119.3\"},\r\n    {\"name\":\"S1.1 E75.4\", \"latitude\":\"-1.1\", \"longitude\":\"75.4\"},\r\n    {\"name\":\"S14.9 W14.6\", \"latitude\":\"-14.9\", \"longitude\":\"-14.6\"},\r\n    {\"name\":\"S14.4 W91.0\", \"latitude\":\"-14.4\", \"longitude\":\"-91.0\"},\r\n    {\"name\":\"S60.7 E105.2\", \"latitude\":\"-60.7\", \"longitude\":\"105.2\"},\r\n    {\"name\":\"N43.7 W30.0\", \"latitude\":\"43.7\", \"longitude\":\"-30.0\"},\r\n    {\"name\":\"S74.8 E15.4\", \"latitude\":\"-74.8\", \"longitude\":\"15.4\"},\r\n    {\"name\":\"S58.1 W1.9\", \"latitude\":\"-58.1\", \"longitude\":\"-1.9\"},\r\n    {\"name\":\"S13.5 E61.7\", \"latitude\":\"-13.5\", \"longitude\":\"61.7\"},\r\n    {\"name\":\"N1.3 W91.7\", \"latitude\":\"1.3\", \"longitude\":\"-91.7\"},\r\n    {\"name\":\"N45.3 E136.0\", \"latitude\":\"45.3\", \"longitude\":\"136.0\"},\r\n    {\"name\":\"S0.6 W28.5\", \"latitude\":\"-0.6\", \"longitude\":\"-28.5\"},\r\n    {\"name\":\"N61.4 E121.8\", \"latitude\":\"61.4\", \"longitude\":\"121.8\"},\r\n    {\"name\":\"N61.0 W133.2\", \"latitude\":\"61.0\", \"longitude\":\"-133.2\"},\r\n    {\"name\":\"S16.3 E88.4\", \"latitude\":\"-16.3\", \"longitude\":\"88.4\"},\r\n    {\"name\":\"N59.4 E31.6\", \"latitude\":\"59.4\", \"longitude\":\"31.6\"},\r\n    {\"name\":\"S28.5 E133.1\", \"latitude\":\"-28.5\", \"longitude\":\"133.1\"},\r\n    {\"name\":\"N1.3 W105.8\", \"latitude\":\"1.3\", \"longitude\":\"-105.8\"},\r\n    {\"name\":\"N1.6 E28.9\", \"latitude\":\"1.6\", \"longitude\":\"28.9\"},\r\n    {\"name\":\"N31.7 E106.8\", \"latitude\":\"31.7\", \"longitude\":\"106.8\"},\r\n    {\"name\":\"N45.8 E89.3\", \"latitude\":\"45.8\", \"longitude\":\"89.3\"},\r\n    {\"name\":\"N30.9 E73.9\", \"latitude\":\"30.9\", \"longitude\":\"73.9\"},\r\n    {\"name\":\"N14.8 W46.8\", \"latitude\":\"14.8\", \"longitude\":\"-46.8\"},\r\n    {\"name\":\"S15.9 W61.1\", \"latitude\":\"-15.9\", \"longitude\":\"-61.1\"},\r\n    {\"name\":\"N15.8 W151.7\", \"latitude\":\"15.8\", \"longitude\":\"-151.7\"},\r\n    {\"name\":\"S29.6 W74.6\", \"latitude\":\"-29.6\", \"longitude\":\"-74.6\"},\r\n    {\"name\":\"N13.7 E58.4\", \"latitude\":\"13.7\", \"longitude\":\"58.4\"},\r\n    {\"name\":\"N0.3 E136.0\", \"latitude\":\"0.3\", \"longitude\":\"136.0\"},\r\n    {\"name\":\"N0.6 E88.4\", \"latitude\":\"0.6\", \"longitude\":\"88.4\"},\r\n    {\"name\":\"N30.4 W15.7\", \"latitude\":\"30.4\", \"longitude\":\"-15.7\"},\r\n    {\"name\":\"N13.3 W105.1\", \"latitude\":\"13.3\", \"longitude\":\"-105.1\"},\r\n    {\"name\":\"N44.9 E164.5\", \"latitude\":\"44.9\", \"longitude\":\"164.5\"},\r\n    {\"name\":\"S75.6 W166.3\", \"latitude\":\"-75.6\", \"longitude\":\"-166.3\"},\r\n    {\"name\":\"N45.3 W59.1\", \"latitude\":\"45.3\", \"longitude\":\"-59.1\"},\r\n    {\"name\":\"S45.9 E88.1\", \"latitude\":\"-45.9\", \"longitude\":\"88.1\"},\r\n    {\"name\":\"S76.2 W90.0\", \"latitude\":\"-76.2\", \"longitude\":\"-90.0\"},\r\n    {\"name\":\"S61.2 W44.2\", \"latitude\":\"-61.2\", \"longitude\":\"-44.2\"},\r\n    {\"name\":\"N46.1 W103.7\", \"latitude\":\"46.1\", \"longitude\":\"-103.7\"},\r\n    {\"name\":\"S0.1 W43.5\", \"latitude\":\"-0.1\", \"longitude\":\"-43.5\"},\r\n    {\"name\":\"S30.3 E45.4\", \"latitude\":\"-30.3\", \"longitude\":\"45.4\"},\r\n    {\"name\":\"S30.3 E90.8\", \"latitude\":\"-30.3\", \"longitude\":\"90.8\"},\r\n    {\"name\":\"N58.8 E105.7\", \"latitude\":\"58.8\", \"longitude\":\"105.7\"},\r\n    {\"name\":\"N14.8 W75.2\", \"latitude\":\"14.8\", \"longitude\":\"-75.2\"},\r\n    {\"name\":\"N60.7 W15.0\", \"latitude\":\"60.7\", \"longitude\":\"-15.0\"},\r\n    {\"name\":\"N45.8 W91.5\", \"latitude\":\"45.8\", \"longitude\":\"-91.5\"},\r\n    {\"name\":\"N30.3 W30.7\", \"latitude\":\"30.3\", \"longitude\":\"-30.7\"},\r\n    {\"name\":\"S14.5 E13.3\", \"latitude\":\"-14.5\", \"longitude\":\"13.3\"},\r\n    {\"name\":\"S13.6 E148.3\", \"latitude\":\"-13.6\", \"longitude\":\"148.3\"},\r\n    {\"name\":\"S29.1 E29.8\", \"latitude\":\"-29.1\", \"longitude\":\"29.8\"},\r\n    {\"name\":\"N61.9 E165.1\", \"latitude\":\"61.9\", \"longitude\":\"165.1\"},\r\n    {\"name\":\"S61.7 E61.3\", \"latitude\":\"-61.7\", \"longitude\":\"61.3\"},\r\n    {\"name\":\"S44.6 W121.1\", \"latitude\":\"-44.6\", \"longitude\":\"-121.1\"},\r\n    {\"name\":\"N31.7 W43.8\", \"latitude\":\"31.7\", \"longitude\":\"-43.8\"},\r\n    {\"name\":\"N76.5 E151.0\", \"latitude\":\"76.5\", \"longitude\":\"151.0\"},\r\n    {\"name\":\"S14.6 W135.0\", \"latitude\":\"-14.6\", \"longitude\":\"-135.0\"},\r\n    {\"name\":\"S30.6 E104.1\", \"latitude\":\"-30.6\", \"longitude\":\"104.1\"},\r\n    {\"name\":\"S61.0 W119.1\", \"latitude\":\"-61.0\", \"longitude\":\"-119.1\"},\r\n    {\"name\":\"N44.0 W151.4\", \"latitude\":\"44.0\", \"longitude\":\"-151.4\"},\r\n    {\"name\":\"S75.7 E88.8\", \"latitude\":\"-75.7\", \"longitude\":\"88.8\"},\r\n    {\"name\":\"N76.1 W61.8\", \"latitude\":\"76.1\", \"longitude\":\"-61.8\"},\r\n    {\"name\":\"S58.9 W60.5\", \"latitude\":\"-58.9\", \"longitude\":\"-60.5\"},\r\n    {\"name\":\"S60.4 E14.7\", \"latitude\":\"-60.4\", \"longitude\":\"14.7\"},\r\n    {\"name\":\"S43.8 W59.6\", \"latitude\":\"-43.8\", \"longitude\":\"-59.6\"},\r\n    {\"name\":\"N29.8 E166.5\", \"latitude\":\"29.8\", \"longitude\":\"166.5\"},\r\n    {\"name\":\"N74.7 E103.5\", \"latitude\":\"74.7\", \"longitude\":\"103.5\"},\r\n    {\"name\":\"N30.8 W134.3\", \"latitude\":\"30.8\", \"longitude\":\"-134.3\"},\r\n    {\"name\":\"S58.8 E150.1\", \"latitude\":\"-58.8\", \"longitude\":\"150.1\"},\r\n    {\"name\":\"N30.4 E120.1\", \"latitude\":\"30.4\", \"longitude\":\"120.1\"},\r\n    {\"name\":\"N44.1 E150.1\", \"latitude\":\"44.1\", \"longitude\":\"150.1\"},\r\n    {\"name\":\"N15.0 W91.0\", \"latitude\":\"15.0\", \"longitude\":\"-91.0\"},\r\n    {\"name\":\"N30.7 E151.8\", \"latitude\":\"30.7\", \"longitude\":\"151.8\"},\r\n    {\"name\":\"S44.4 W43.8\", \"latitude\":\"-44.4\", \"longitude\":\"-43.8\"},\r\n    {\"name\":\"S30.0 E119.2\", \"latitude\":\"-30.0\", \"longitude\":\"119.2\"},\r\n    {\"name\":\"N76.9 E15.2\", \"latitude\":\"76.9\", \"longitude\":\"15.2\"},\r\n    {\"name\":\"S60.1 W74.4\", \"latitude\":\"-60.1\", \"longitude\":\"-74.4\"},\r\n    {\"name\":\"N74.8 W44.4\", \"latitude\":\"74.8\", \"longitude\":\"-44.4\"},\r\n    {\"name\":\"N13.9 E91.1\", \"latitude\":\"13.9\", \"longitude\":\"91.1\"},\r\n    {\"name\":\"N74.1 E60.1\", \"latitude\":\"74.1\", \"longitude\":\"60.1\"},\r\n    {\"name\":\"S46.0 W74.4\", \"latitude\":\"-46.0\", \"longitude\":\"-74.4\"},\r\n    {\"name\":\"S29.0 W15.9\", \"latitude\":\"-29.0\", \"longitude\":\"-15.9\"},\r\n    {\"name\":\"S74.2 W119.5\", \"latitude\":\"-74.2\", \"longitude\":\"-119.5\"},\r\n    {\"name\":\"S14.1 E104.3\", \"latitude\":\"-14.1\", \"longitude\":\"104.3\"},\r\n    {\"name\":\"S29.6 E148.7\", \"latitude\":\"-29.6\", \"longitude\":\"148.7\"},\r\n    {\"name\":\"S73.7 W15.2\", \"latitude\":\"-73.7\", \"longitude\":\"-15.2\"},\r\n    {\"name\":\"S60.3 W165.8\", \"latitude\":\"-60.3\", \"longitude\":\"-165.8\"},\r\n    {\"name\":\"N16.3 E106.3\", \"latitude\":\"16.3\", \"longitude\":\"106.3\"},\r\n    {\"name\":\"S75.5 E104.1\", \"latitude\":\"-75.5\", \"longitude\":\"104.1\"},\r\n    {\"name\":\"S16.4 E0.4\", \"latitude\":\"-16.4\", \"longitude\":\"0.4\"},\r\n    {\"name\":\"N59.7 E90.5\", \"latitude\":\"59.7\", \"longitude\":\"90.5\"},\r\n    {\"name\":\"S59.9 W14.2\", \"latitude\":\"-59.9\", \"longitude\":\"-14.2\"},\r\n    {\"name\":\"N75.9 E43.2\", \"latitude\":\"75.9\", \"longitude\":\"43.2\"},\r\n    {\"name\":\"S45.6 W0.8\", \"latitude\":\"-45.6\", \"longitude\":\"-0.8\"},\r\n    {\"name\":\"N59.9 W90.1\", \"latitude\":\"59.9\", \"longitude\":\"-90.1\"},\r\n    {\"name\":\"N13.2 W164.8\", \"latitude\":\"13.2\", \"longitude\":\"-164.8\"},\r\n    {\"name\":\"S14.6 W45.7\", \"latitude\":\"-14.6\", \"longitude\":\"-45.7\"},\r\n    {\"name\":\"S61.0 E91.3\", \"latitude\":\"-61.0\", \"longitude\":\"91.3\"},\r\n    {\"name\":\"S16.7 W121.4\", \"latitude\":\"-16.7\", \"longitude\":\"-121.4\"},\r\n    {\"name\":\"S59.4 E31.2\", \"latitude\":\"-59.4\", \"longitude\":\"31.2\"},\r\n    {\"name\":\"S15.4 E74.4\", \"latitude\":\"-15.4\", \"longitude\":\"74.4\"},\r\n    {\"name\":\"N61.3 W104.5\", \"latitude\":\"61.3\", \"longitude\":\"-104.5\"},\r\n    {\"name\":\"N45.7 E59.5\", \"latitude\":\"45.7\", \"longitude\":\"59.5\"},\r\n    {\"name\":\"N75.8 W136.9\", \"latitude\":\"75.8\", \"longitude\":\"-136.9\"},\r\n    {\"name\":\"S46.1 W151.8\", \"latitude\":\"-46.1\", \"longitude\":\"-151.8\"},\r\n    {\"name\":\"N74.3 W151.7\", \"latitude\":\"74.3\", \"longitude\":\"-151.7\"},\r\n    {\"name\":\"S13.3 W151.8\", \"latitude\":\"-13.3\", \"longitude\":\"-151.8\"},\r\n    {\"name\":\"N31.8 E16.7\", \"latitude\":\"31.8\", \"longitude\":\"16.7\"},\r\n    {\"name\":\"S29.9 E61.2\", \"latitude\":\"-29.9\", \"longitude\":\"61.2\"},\r\n    {\"name\":\"S73.5 E76.5\", \"latitude\":\"-73.5\", \"longitude\":\"76.5\"},\r\n    {\"name\":\"N15.1 E28.6\", \"latitude\":\"15.1\", \"longitude\":\"28.6\"},\r\n    {\"name\":\"N1.1 E59.8\", \"latitude\":\"1.1\", \"longitude\":\"59.8\"},\r\n    {\"name\":\"N73.8 E1.7\", \"latitude\":\"73.8\", \"longitude\":\"1.7\"},\r\n    {\"name\":\"S30.4 W90.4\", \"latitude\":\"-30.4\", \"longitude\":\"-90.4\"},\r\n    {\"name\":\"N16.0 W30.1\", \"latitude\":\"16.0\", \"longitude\":\"-30.1\"},\r\n    {\"name\":\"S15.4 E163.4\", \"latitude\":\"-15.4\", \"longitude\":\"163.4\"},\r\n    {\"name\":\"N74.5 W75.0\", \"latitude\":\"74.5\", \"longitude\":\"-75.0\"},\r\n    {\"name\":\"S75.8 E136.0\", \"latitude\":\"-75.8\", \"longitude\":\"136.0\"},\r\n    {\"name\":\"S76.0 W104.7\", \"latitude\":\"-76.0\", \"longitude\":\"-104.7\"},\r\n    {\"name\":\"N0.1 E119.3\", \"latitude\":\"0.1\", \"longitude\":\"119.3\"},\r\n    {\"name\":\"N29.0 E90.6\", \"latitude\":\"29.0\", \"longitude\":\"90.6\"},\r\n    {\"name\":\"S1.8 E150.8\", \"latitude\":\"-1.8\", \"longitude\":\"150.8\"},\r\n    {\"name\":\"S29.0 W31.6\", \"latitude\":\"-29.0\", \"longitude\":\"-31.6\"},\r\n    {\"name\":\"N60.3 W46.1\", \"latitude\":\"60.3\", \"longitude\":\"-46.1\"},\r\n    {\"name\":\"S31.6 W121.0\", \"latitude\":\"-31.6\", \"longitude\":\"-121.0\"},\r\n    {\"name\":\"N1.1 E13.5\", \"latitude\":\"1.1\", \"longitude\":\"13.5\"},\r\n    {\"name\":\"S75.3 E149.4\", \"latitude\":\"-75.3\", \"longitude\":\"149.4\"},\r\n    {\"name\":\"N74.3 W90.1\", \"latitude\":\"74.3\", \"longitude\":\"-90.1\"},\r\n    {\"name\":\"N15.0 E149.1\", \"latitude\":\"15.0\", \"longitude\":\"149.1\"},\r\n    {\"name\":\"N14.0 E166.5\", \"latitude\":\"14.0\", \"longitude\":\"166.5\"},\r\n    {\"name\":\"N60.4 E61.4\", \"latitude\":\"60.4\", \"longitude\":\"61.4\"},\r\n    {\"name\":\"S45.8 E28.7\", \"latitude\":\"-45.8\", \"longitude\":\"28.7\"},\r\n    {\"name\":\"N45.4 E31.8\", \"latitude\":\"45.4\", \"longitude\":\"31.8\"},\r\n    {\"name\":\"N61.4 W31.1\", \"latitude\":\"61.4\", \"longitude\":\"-31.1\"},\r\n    {\"name\":\"N44.3 W15.5\", \"latitude\":\"44.3\", \"longitude\":\"-15.5\"},\r\n    {\"name\":\"S73.1 E61.4\", \"latitude\":\"-73.1\", \"longitude\":\"61.4\"},\r\n    {\"name\":\"S46.2 E166.1\", \"latitude\":\"-46.2\", \"longitude\":\"166.1\"},\r\n    {\"name\":\"S0.9 W61.0\", \"latitude\":\"-0.9\", \"longitude\":\"-61.0\"},\r\n    {\"name\":\"S76.5 E120.0\", \"latitude\":\"-76.5\", \"longitude\":\"120.0\"},\r\n    {\"name\":\"N75.8 W165.0\", \"latitude\":\"75.8\", \"longitude\":\"-165.0\"},\r\n    {\"name\":\"N46.2 W76.2\", \"latitude\":\"46.2\", \"longitude\":\"-76.2\"},\r\n    {\"name\":\"S30.5 E16.5\", \"latitude\":\"-30.5\", \"longitude\":\"16.5\"},\r\n    {\"name\":\"S46.7 W90.5\", \"latitude\":\"-46.7\", \"longitude\":\"-90.5\"},\r\n    {\"name\":\"N76.1 E91.9\", \"latitude\":\"76.1\", \"longitude\":\"91.9\"},\r\n    {\"name\":\"N58.2 W150.6\", \"latitude\":\"58.2\", \"longitude\":\"-150.6\"},\r\n    {\"name\":\"S15.8 E46.6\", \"latitude\":\"-15.8\", \"longitude\":\"46.6\"},\r\n    {\"name\":\"S44.1 E61.3\", \"latitude\":\"-44.1\", \"longitude\":\"61.3\"},\r\n    {\"name\":\"S61.3 E165.2\", \"latitude\":\"-61.3\", \"longitude\":\"165.2\"},\r\n    {\"name\":\"S61.3 W103.5\", \"latitude\":\"-61.3\", \"longitude\":\"-103.5\"},\r\n    {\"name\":\"S76.3 W44.0\", \"latitude\":\"-76.3\", \"longitude\":\"-44.0\"},\r\n    {\"name\":\"S44.0 E74.4\", \"latitude\":\"-44.0\", \"longitude\":\"74.4\"},\r\n    {\"name\":\"S1.8 E106.6\", \"latitude\":\"-1.8\", \"longitude\":\"106.6\"},\r\n    {\"name\":\"S44.0 E43.9\", \"latitude\":\"-44.0\", \"longitude\":\"43.9\"},\r\n    {\"name\":\"N59.7 E151.5\", \"latitude\":\"59.7\", \"longitude\":\"151.5\"},\r\n    {\"name\":\"N61.2 W60.6\", \"latitude\":\"61.2\", \"longitude\":\"-60.6\"},\r\n    {\"name\":\"S58.9 W134.1\", \"latitude\":\"-58.9\", \"longitude\":\"-134.1\"},\r\n    {\"name\":\"S46.9 E149.5\", \"latitude\":\"-46.9\", \"longitude\":\"149.5\"},\r\n    {\"name\":\"N15.7 E121.8\", \"latitude\":\"15.7\", \"longitude\":\"121.8\"},\r\n    {\"name\":\"N0.2 W165.2\", \"latitude\":\"0.2\", \"longitude\":\"-165.2\"},\r\n    {\"name\":\"N31.7 E29.8\", \"latitude\":\"31.7\", \"longitude\":\"29.8\"},\r\n    {\"name\":\"N30.0 E61.9\", \"latitude\":\"30.0\", \"longitude\":\"61.9\"},\r\n    {\"name\":\"S28.3 W61.2\", \"latitude\":\"-28.3\", \"longitude\":\"-61.2\"},\r\n    {\"name\":\"N61.7 W73.8\", \"latitude\":\"61.7\", \"longitude\":\"-73.8\"},\r\n    {\"name\":\"S45.7 W166.0\", \"latitude\":\"-45.7\", \"longitude\":\"-166.0\"},\r\n    {\"name\":\"S28.9 W44.9\", \"latitude\":\"-28.9\", \"longitude\":\"-44.9\"}\r\n ]\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

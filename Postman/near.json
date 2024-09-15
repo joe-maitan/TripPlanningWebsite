@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "3ce82106-ea59-474c-9a14-e3f3fb96f92c",
+		"name": "near",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "32931156-3ce82106-ea59-474c-9a14-e3f3fb96f92c"
+	},
+	"item": [
+		{
+			"name": "base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0997318f-e632-4e90-9970-51ae3600c3dc",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "2c1d46a9-97f6-448c-8a83-315c04afcbb7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"requestType\": \"near\",\r\n\"place\": {\r\n  \"name\": \"Sigma Phi Epsilon House\",\r\n  \"latitude\": \"40.568464\",\r\n  \"longitude\": \"-105.075835\"\r\n},\r\n\"distance\": 10,\r\n\"earthRadius\": 6371,\r\n\"limit\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/near",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"near"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tjolsonx: ayushad Near Request Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8d11682-0dc3-4eac-b176-bad817f534d6",
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "0e61c3a4-caa6-41a7-bfce-9f5c1679123b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestType\": \"near\",\r\n    \"place\": {\r\n        \"latitude\": \"35.65\",\r\n        \"longitude\": \"139.75\"\r\n    },\r\n    \"distance\": 20,\r\n    \"earthRadius\": 3959,\r\n    \"limit\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/near",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"near"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
